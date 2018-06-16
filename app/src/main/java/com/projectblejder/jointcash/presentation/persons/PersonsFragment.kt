@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.projectblejder.jointcash.databinding.PersonsFragmentBinding
+import com.projectblejder.jointcash.presentation.utils.inTransaction
 
 class PersonsFragment : Fragment() {
 
@@ -25,7 +26,9 @@ class PersonsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding.addNewPersonButton.setOnClickListener {
-            AddPersonDialogFragment().show(childFragmentManager, "dialog")
+            childFragmentManager.inTransaction {
+                add(binding.root.id, AddPersonFragment(), "dialog")
+            }
         }
     }
 }

@@ -1,9 +1,10 @@
-package com.projectblejder.jointcash
+package com.projectblejder.jointcash.presentation
 
 import android.databinding.DataBindingUtil
 import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import com.projectblejder.jointcash.R
 import com.projectblejder.jointcash.databinding.MainActivityBinding
 
 class MainActivity : AppCompatActivity() {

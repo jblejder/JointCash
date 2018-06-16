@@ -8,4 +8,5 @@
     <color name="colorSecondary">#faaa81</color>
     <color name="colorSecondaryLight">#ffdcb1</color>
     <color name="colorSecondaryDark">#c47a54</color>
+    <color name="white">#ffffff</color>
 </resources>

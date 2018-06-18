@@ -27,6 +27,7 @@ class PersonsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding.addNewPersonButton.setOnClickListener {
             childFragmentManager.inTransaction {
+//                setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
                 add(binding.root.id, AddPersonFragment(), "dialog")
             }
         }

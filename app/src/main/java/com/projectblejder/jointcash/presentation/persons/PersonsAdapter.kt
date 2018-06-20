@@ -8,6 +8,10 @@ import com.projectblejder.jointcash.databinding.PersonListItemBinding
 class PersonsAdapter : RecyclerView.Adapter<PersonViewHolder>() {
 
     var dataSet: List<String> = emptyList()
+        set(value) {
+            field = value
+            notifyDataSetChanged()
+        }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PersonViewHolder {
         val inflater = LayoutInflater.from(parent.context)

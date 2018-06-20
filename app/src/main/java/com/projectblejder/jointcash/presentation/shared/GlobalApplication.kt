@@ -2,7 +2,7 @@ package com.projectblejder.jointcash.presentation.shared
 
 import com.projectblejder.jointcash.presentation.shared.dagger.DaggerAppComponent
 import dagger.android.AndroidInjector
-import dagger.android.DaggerApplication
+import dagger.android.support.DaggerApplication
 
 class GlobalApplication : DaggerApplication() {
 

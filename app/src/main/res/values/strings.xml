@@ -3,4 +3,6 @@
     <string name="recent">Recent</string>
     <string name="events">Events</string>
     <string name="friends">Friends</string>
+    <string name="save">Save</string>
+    <string name="new_person_name">New person name</string>
 </resources>

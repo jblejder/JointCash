@@ -15,8 +15,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import com.projectblejder.jointcash.databinding.AddPersonFragmentBinding
+import com.projectblejder.jointcash.infrastructure.AppDatabase
+import com.projectblejder.jointcash.infrastructure.PersonEntity
 import com.projectblejder.jointcash.presentation.utils.extensions.inTransaction
 import com.projectblejder.jointcash.presentation.utils.extensions.onTransitionEnd
+import dagger.android.support.AndroidSupportInjection
+import io.reactivex.Completable
+import io.reactivex.schedulers.Schedulers
+import javax.inject.Inject
 
 
 class AddPersonFragment : Fragment() {
@@ -27,6 +33,14 @@ class AddPersonFragment : Fragment() {
     private val handler = Handler()
 
     private var removingByOutsideClick = false
+
+    @Inject
+    lateinit var db: AppDatabase
+
+    override fun onAttach(context: Context?) {
+        AndroidSupportInjection.inject(this)
+        super.onAttach(context)
+    }
 
     override fun onStart() {
         super.onStart()
@@ -47,6 +61,17 @@ class AddPersonFragment : Fragment() {
         binding.touchOutside.setOnClickListener {
             TransitionManager.beginDelayedTransition(binding.coordinatorLayout, createFade())
             binding.touchOutside.visibility = View.INVISIBLE
+            sheetBehavior.state = STATE_HIDDEN
+            removingByOutsideClick = true
+        }
+        binding.saveButton.setOnClickListener {
+            Completable
+                    .create {
+                        db.persons().create(PersonEntity(null, binding.personNameInput.text.toString()))
+                        it.onComplete()
+                    }
+                    .subscribeOn(Schedulers.io())
+                    .subscribe()
             sheetBehavior.state = STATE_HIDDEN
             removingByOutsideClick = true
         }

@@ -1,5 +1,6 @@
 package com.projectblejder.jointcash.presentation.persons
 
+import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
@@ -7,17 +8,32 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.projectblejder.jointcash.databinding.PersonsFragmentBinding
+import com.projectblejder.jointcash.presentation.utils.extensions.disposeWith
 import com.projectblejder.jointcash.presentation.utils.extensions.inSyncTransaction
+import dagger.android.support.AndroidSupportInjection
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.CompositeDisposable
+import javax.inject.Inject
 
 class PersonsFragment : Fragment() {
 
     lateinit var binding: PersonsFragmentBinding
 
+    @Inject
+    lateinit var viewModel: PersonsViewModel
+
+    private val adapter = PersonsAdapter()
+
+    val disposeBag = CompositeDisposable()
+
+    override fun onAttach(context: Context?) {
+        AndroidSupportInjection.inject(this)
+        super.onAttach(context)
+    }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = PersonsFragmentBinding.inflate(inflater, container, false)
 
-        val adapter = PersonsAdapter()
-        adapter.dataSet = listOf("one", "two", "three")
         binding.recyclerView.adapter = adapter
         binding.recyclerView.layoutManager = LinearLayoutManager(context)
 
@@ -30,5 +46,12 @@ class PersonsFragment : Fragment() {
                 add(binding.root.id, AddPersonFragment(), "add-person-dialog")
             }
         }
+
+        viewModel.database.persons().all()
+                .onBackpressureDrop()
+                .map { it.map { it.displayName } }
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe { adapter.dataSet = it }
+                .disposeWith(disposeBag)
     }
 }

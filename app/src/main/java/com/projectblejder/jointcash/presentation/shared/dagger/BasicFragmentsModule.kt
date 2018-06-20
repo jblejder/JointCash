@@ -9,7 +9,7 @@ import dagger.android.ContributesAndroidInjector
 abstract class BasicFragmentsModule {
 
     @ContributesAndroidInjector
-    abstract fun personFragment(): PersonsFragment
+    abstract fun personsFragment(): PersonsFragment
 
     @ContributesAndroidInjector
     abstract fun addPersonFragment(): AddPersonFragment

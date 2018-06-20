@@ -8,8 +8,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.projectblejder.jointcash.databinding.PersonsFragmentBinding
+import com.projectblejder.jointcash.presentation.DrawerKeeper
 import com.projectblejder.jointcash.presentation.utils.extensions.disposeWith
-import com.projectblejder.jointcash.presentation.utils.extensions.inSyncTransaction
 import dagger.android.support.AndroidSupportInjection
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
@@ -51,5 +51,9 @@ class PersonsFragment : Fragment() {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe { adapter.dataSet = it }
                 .disposeWith(disposeBag)
+
+        binding.drawerButton.setOnClickListener {
+            (activity as DrawerKeeper).toggle()
+        }
     }
 }

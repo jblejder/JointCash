@@ -4,12 +4,13 @@ import android.databinding.DataBindingUtil
 import android.graphics.Color
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.view.Gravity
 import com.projectblejder.jointcash.R
 import com.projectblejder.jointcash.databinding.MainActivityBinding
 import com.projectblejder.jointcash.presentation.persons.PersonsFragment
 import com.projectblejder.jointcash.presentation.utils.extensions.inTransaction
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), DrawerKeeper {
 
     lateinit var binding: MainActivityBinding
     lateinit var drawerListener: DrawerListener
@@ -28,4 +29,16 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
+    override fun toggle() {
+        if (binding.drawerLayout.isDrawerOpen(Gravity.START)) {
+            binding.drawerLayout.closeDrawer(Gravity.START)
+        } else {
+            binding.drawerLayout.openDrawer(Gravity.START)
+        }
+    }
+}
+
+interface DrawerKeeper {
+    fun toggle()
 }

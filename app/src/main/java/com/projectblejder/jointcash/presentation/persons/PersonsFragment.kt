@@ -7,7 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.projectblejder.jointcash.databinding.PersonsFragmentBinding
-import com.projectblejder.jointcash.presentation.utils.inTransaction
+import com.projectblejder.jointcash.presentation.utils.extensions.inSyncTransaction
 
 class PersonsFragment : Fragment() {
 
@@ -26,9 +26,8 @@ class PersonsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding.addNewPersonButton.setOnClickListener {
-            childFragmentManager.inTransaction {
-//                setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
-                add(binding.root.id, AddPersonFragment(), "dialog")
+            childFragmentManager.inSyncTransaction {
+                add(binding.root.id, AddPersonFragment(), "add-person-dialog")
             }
         }
     }

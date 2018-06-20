@@ -7,7 +7,7 @@ import android.support.v7.app.AppCompatActivity
 import com.projectblejder.jointcash.R
 import com.projectblejder.jointcash.databinding.MainActivityBinding
 import com.projectblejder.jointcash.presentation.persons.PersonsFragment
-import com.projectblejder.jointcash.presentation.utils.inTransaction
+import com.projectblejder.jointcash.presentation.utils.extensions.inTransaction
 
 class MainActivity : AppCompatActivity() {
 

@@ -41,6 +41,13 @@ dependencies {
     implementation "android.arch.persistence.room:rxjava2:$room_version"
     testImplementation "android.arch.persistence.room:testing:$room_version"
 
+    //DAGGER
+    implementation 'com.google.dagger:dagger:2.15'
+    kapt 'com.google.dagger:dagger-compiler:2.15'
+    implementation 'com.google.dagger:dagger-android:2.15'
+    implementation 'com.google.dagger:dagger-android-support:2.15'
+    kapt 'com.google.dagger:dagger-android-processor:2.15'
+
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'

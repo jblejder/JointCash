@@ -42,9 +42,7 @@ class PersonsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding.addNewPersonButton.setOnClickListener {
-            childFragmentManager.inSyncTransaction {
-                add(binding.root.id, AddPersonFragment(), "add-person-dialog")
-            }
+            AddPersonDialogFragment().show(childFragmentManager, "add-")
         }
 
         viewModel.database.persons().all()

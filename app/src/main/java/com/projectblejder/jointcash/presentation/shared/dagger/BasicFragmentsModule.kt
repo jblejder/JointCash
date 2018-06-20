@@ -1,5 +1,6 @@
 package com.projectblejder.jointcash.presentation.shared.dagger
 
+import com.projectblejder.jointcash.presentation.persons.AddPersonDialogFragment
 import com.projectblejder.jointcash.presentation.persons.AddPersonFragment
 import com.projectblejder.jointcash.presentation.persons.PersonsFragment
 import dagger.Module
@@ -13,4 +14,7 @@ abstract class BasicFragmentsModule {
 
     @ContributesAndroidInjector
     abstract fun addPersonFragment(): AddPersonFragment
+
+    @ContributesAndroidInjector
+    abstract fun addPersonDialogFragment(): AddPersonDialogFragment
 }

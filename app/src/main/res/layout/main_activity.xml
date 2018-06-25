@@ -29,11 +29,6 @@
 
                 <include
                     layout="@layout/drawer_item"
-                    app:icon="@{@drawable/ic_recent_white_24dp}"
-                    app:name="@{@string/recent}" />
-
-                <include
-                    layout="@layout/drawer_item"
                     app:icon="@{@drawable/ic_event_white_24dp}"
                     app:name="@{@string/events}" />
 

@@ -12,7 +12,7 @@ import android.view.ViewGroup
 import com.projectblejder.jointcash.R
 import com.projectblejder.jointcash.databinding.AddPersonDialogFragmentBinding
 import com.projectblejder.jointcash.infrastructure.AppDatabase
-import com.projectblejder.jointcash.infrastructure.PersonEntity
+import com.projectblejder.jointcash.infrastructure.models.Person
 import com.projectblejder.jointcash.presentation.utils.extensions.disposeWith
 import dagger.android.support.AndroidSupportInjection
 import io.reactivex.Completable
@@ -57,7 +57,7 @@ class AddPersonDialogFragment : BottomSheetDialogFragment() {
 
     private fun saveNewPerson() = Completable
             .create {
-                db.persons().create(PersonEntity(null, binding.personNameInput.text.toString()))
+                db.persons().create(Person(null, binding.personNameInput.text.toString()))
                 it.onComplete()
             }
             .subscribeOn(Schedulers.io())

@@ -16,7 +16,7 @@ import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import com.projectblejder.jointcash.databinding.AddPersonFragmentBinding
 import com.projectblejder.jointcash.infrastructure.AppDatabase
-import com.projectblejder.jointcash.infrastructure.PersonEntity
+import com.projectblejder.jointcash.infrastructure.models.Person
 import com.projectblejder.jointcash.presentation.utils.extensions.inTransaction
 import com.projectblejder.jointcash.presentation.utils.extensions.onTransitionEnd
 import dagger.android.support.AndroidSupportInjection
@@ -67,7 +67,7 @@ class AddPersonFragment : Fragment() {
         binding.saveButton.setOnClickListener {
             Completable
                     .create {
-                        db.persons().create(PersonEntity(null, binding.personNameInput.text.toString()))
+                        db.persons().create(Person(null, binding.personNameInput.text.toString()))
                         it.onComplete()
                     }
                     .subscribeOn(Schedulers.io())

@@ -8,11 +8,11 @@ import android.arch.persistence.room.PrimaryKey
 @Entity(
         tableName = "person_group",
         foreignKeys = [
-            (ForeignKey(entity = Person::class, parentColumns = ["id"], childColumns = ["person_id"])),
-            (ForeignKey(entity = Group::class, parentColumns = ["id"], childColumns = ["group_id"]))
+            ForeignKey(entity = Person::class, parentColumns = ["id"], childColumns = ["person_id"]),
+            ForeignKey(entity = Group::class, parentColumns = ["id"], childColumns = ["group_id"])
         ])
 data class PersonGroup(
-        @PrimaryKey
+        @PrimaryKey(autoGenerate = true)
         var id: Int?,
         @ColumnInfo(name = "person_id")
         var personId: Int,

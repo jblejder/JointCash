@@ -10,7 +10,7 @@ import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
 
 @RunWith(RobolectricTestRunner::class)
-class PersonsDaoTest: BaseAppDatabaseTest() {
+class PersonsDaoTest : BaseAppDatabaseTest() {
 
     lateinit var persons: PersonsDao
 
@@ -42,6 +42,8 @@ class PersonsDaoTest: BaseAppDatabaseTest() {
         persons.deleteById(2)
 
         val test = persons.all().test()
+
+        test.awaitCount(1)
 
         test.assertValue(listOf(
                 Person(1, "name1"),

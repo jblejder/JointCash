@@ -1,6 +1,9 @@
 package com.projectblejder.jointcash.infrastructure.models
 
-import android.arch.persistence.room.*
+import android.arch.persistence.room.ColumnInfo
+import android.arch.persistence.room.Entity
+import android.arch.persistence.room.ForeignKey
+import android.arch.persistence.room.PrimaryKey
 
 @Entity(
         tableName = "expenses",
@@ -11,8 +14,9 @@ import android.arch.persistence.room.*
         ]
 )
 data class Expense(
-        @PrimaryKey
+        @PrimaryKey(autoGenerate = true)
         var id: Int?,
+
         @ColumnInfo(name = "name")
         var name: String,
         @ColumnInfo(name = "group_id")

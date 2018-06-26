@@ -6,12 +6,12 @@ import android.arch.persistence.room.ForeignKey
 import android.arch.persistence.room.PrimaryKey
 
 @Entity(
-        tableName = "expense_person_relations",
+        tableName = "person_expenses",
         foreignKeys = [
             (ForeignKey(entity = Expense::class, parentColumns = ["id"], childColumns = ["expense_id"])),
             (ForeignKey(entity = Person::class, parentColumns = ["id"], childColumns = ["person_id"]))
         ])
-data class ExpensePersonRelation(
+data class PersonExpense(
         @PrimaryKey
         var id: Int?,
 

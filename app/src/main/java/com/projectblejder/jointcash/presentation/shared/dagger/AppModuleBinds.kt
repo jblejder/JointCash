@@ -21,7 +21,7 @@ class AppModule {
 
     @Provides
     @Singleton
-    fun db(context: Context) = AppDatabase.build(context)
+    fun db() = AppDatabase.instance
 
 //    @Provides
 //    @Singleton

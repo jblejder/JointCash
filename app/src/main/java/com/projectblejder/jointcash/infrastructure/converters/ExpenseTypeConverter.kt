@@ -3,7 +3,7 @@ package com.projectblejder.jointcash.infrastructure.converters
 import android.arch.persistence.room.TypeConverter
 import com.projectblejder.jointcash.infrastructure.models.ExpenseType
 
-class ExpenseTypeConverters {
+class ExpenseTypeConverter {
 
     @TypeConverter
     fun fromTypeToString(type: ExpenseType): String = when (type) {

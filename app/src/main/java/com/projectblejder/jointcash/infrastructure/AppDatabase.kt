@@ -6,7 +6,7 @@ import android.arch.persistence.room.Room
 import android.arch.persistence.room.RoomDatabase
 import android.arch.persistence.room.TypeConverters
 import android.content.Context
-import com.projectblejder.jointcash.infrastructure.converters.ExpenseTypeConverters
+import com.projectblejder.jointcash.infrastructure.converters.ExpenseTypeConverter
 import com.projectblejder.jointcash.infrastructure.dao.GroupsDao
 import com.projectblejder.jointcash.infrastructure.dao.PersonGroupDao
 import com.projectblejder.jointcash.infrastructure.dao.PersonsDao
@@ -24,7 +24,7 @@ import io.reactivex.subjects.CompletableSubject
         ],
         version = 1
 )
-@TypeConverters(ExpenseTypeConverters::class)
+@TypeConverters(ExpenseTypeConverter::class)
 abstract class AppDatabase : RoomDatabase() {
 
     companion object {

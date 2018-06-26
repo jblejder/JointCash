@@ -1,7 +1,7 @@
 package com.projectblejder.jointcash.presentation.shared.dagger
 
 import android.content.Context
-import com.projectblejder.jointcash.infrastructure.AppDatabase
+import com.projectblejder.jointcash.infrastructure.AppDatabaseFactory
 import com.projectblejder.jointcash.presentation.shared.GlobalApplication
 import dagger.Binds
 import dagger.Module
@@ -19,11 +19,4 @@ abstract class AppModuleBinds {
 @Module
 class AppModule {
 
-    @Provides
-    @Singleton
-    fun db() = AppDatabase.instance
-
-//    @Provides
-//    @Singleton
-//    fun persons(db: AppDatabase): PersonsDao = db.persons()
 }

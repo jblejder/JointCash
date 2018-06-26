@@ -45,7 +45,7 @@ class PersonsFragment : Fragment() {
             AddPersonDialogFragment().show(childFragmentManager, "add-")
         }
 
-        viewModel.database.persons().all()
+        viewModel.database.persons().allRx()
                 .onBackpressureDrop()
                 .map { it.map { it.displayName } }
                 .observeOn(AndroidSchedulers.mainThread())

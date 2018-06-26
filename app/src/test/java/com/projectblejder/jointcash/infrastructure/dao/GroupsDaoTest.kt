@@ -23,7 +23,7 @@ class GroupsDaoTest: BaseAppDatabaseTest() {
         groups.create(Group(null, "name2"))
         groups.create(Group(null, "name3"))
 
-        val test = groups.all().test()
+        val test = groups.allRx().test()
         test.awaitCount(1)
 
         test.assertValue(listOf(
@@ -41,7 +41,7 @@ class GroupsDaoTest: BaseAppDatabaseTest() {
 
         groups.deleteById(2)
 
-        val test = groups.all().test()
+        val test = groups.allRx().test()
         test.awaitCount(1)
 
         test.assertValue(listOf(

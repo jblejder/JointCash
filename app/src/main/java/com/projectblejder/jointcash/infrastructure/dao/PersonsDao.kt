@@ -10,7 +10,12 @@ import io.reactivex.Flowable
 interface PersonsDao {
 
     @Query("SELECT * FROM persons")
-    fun all(): Flowable<List<Person>>
+    fun allRx(): Flowable<List<Person>>
+
+//    fun allRx() = _allRx().map { it.map { if (it.displayName == "{you}") Person(it.id, "You") else it } }
+
+    @Query("SELECT * FROM persons")
+    fun all(): List<Person>
 
     @Insert
     fun create(person: Person)

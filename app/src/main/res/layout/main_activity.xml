@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <android.support.v4.widget.DrawerLayout
         android:id="@+id/drawerLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/background_gradient">
+        android:background="@drawable/background_gradient"
+        tools:openDrawer="left">
 
         <FrameLayout
             android:id="@+id/content"
@@ -28,14 +30,16 @@
                 android:orientation="vertical">
 
                 <include
+                    android:id="@+id/expenses"
                     layout="@layout/drawer_item"
                     app:icon="@{@drawable/ic_event_white_24dp}"
-                    app:name="@{@string/events}" />
+                    app:name="@{@string/expenses}" />
 
                 <include
+                    android:id="@+id/peoples"
                     layout="@layout/drawer_item"
                     app:icon="@{@drawable/ic_person_white_24dp}"
-                    app:name="@{@string/friends}" />
+                    app:name="@{@string/peoples}" />
 
             </LinearLayout>
         </RelativeLayout>

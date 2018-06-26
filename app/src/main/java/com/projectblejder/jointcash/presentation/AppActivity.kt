@@ -3,10 +3,12 @@ package com.projectblejder.jointcash.presentation
 import android.databinding.DataBindingUtil
 import android.graphics.Color
 import android.os.Bundle
+import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import android.view.Gravity
 import com.projectblejder.jointcash.R
 import com.projectblejder.jointcash.databinding.MainActivityBinding
+import com.projectblejder.jointcash.presentation.expenses.ExpensesFragment
 import com.projectblejder.jointcash.presentation.persons.PersonsFragment
 import com.projectblejder.jointcash.presentation.utils.extensions.inTransaction
 
@@ -24,10 +26,15 @@ class AppActivity : AppCompatActivity(), DrawerKeeper {
         binding.drawerLayout.setScrimColor(Color.TRANSPARENT)
 
         if (savedInstanceState == null) {
-            supportFragmentManager.inTransaction {
-                replace(binding.content.id, PersonsFragment())
-            }
+            openFragment(ExpensesFragment())
         }
+
+        setUpDrawerClicks()
+    }
+
+    private fun setUpDrawerClicks() {
+        binding.peoples?.also { it.root.setOnClickListener { openFragment(PersonsFragment()) } }
+        binding.expenses?.also { it.root.setOnClickListener { openFragment(ExpensesFragment()) } }
     }
 
     override fun toggle() {
@@ -35,6 +42,13 @@ class AppActivity : AppCompatActivity(), DrawerKeeper {
             binding.drawerLayout.closeDrawer(Gravity.START)
         } else {
             binding.drawerLayout.openDrawer(Gravity.START)
+        }
+    }
+
+    fun openFragment(fragment: Fragment) {
+        supportFragmentManager.inTransaction {
+            setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
+            replace(binding.content.id, fragment)
         }
     }
 }

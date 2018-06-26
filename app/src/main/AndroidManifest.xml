@@ -22,6 +22,10 @@
         <activity
             android:name=".presentation.AppActivity"
             android:windowSoftInputMode="adjustResize" />
+
+        <activity
+            android:name=".presentation.TestActivity"
+            android:exported="true" />
     </application>
 
 </manifest>

@@ -1,7 +1,5 @@
 package com.projectblejder.jointcash.infrastructure
 
-import android.content.res.Resources
-import com.projectblejder.jointcash.R
 import com.projectblejder.jointcash.domain.Persons
 import com.projectblejder.jointcash.infrastructure.dao.PersonsDao
 import io.reactivex.Flowable
@@ -12,7 +10,7 @@ private typealias InfraPerson = com.projectblejder.jointcash.infrastructure.mode
 
 class Persons
 @Inject constructor(
-        private val resources: Resources,
+        private val mapper: KeywordMapper,
         private val personsDao: PersonsDao
 ) : Persons {
 
@@ -26,11 +24,9 @@ class Persons
     }
 
     private fun mapPerson(person: InfraPerson): DomainPerson {
-        return DomainPerson(id = person.id, displayName = tryKeyword(person.displayName))
-    }
-
-    private fun tryKeyword(value: String) = when (value) {
-        "{you}" -> resources.getString(R.string.you)
-        else -> value
+        return DomainPerson(
+                id = person.id,
+                displayName = mapper.map(person.displayName)
+        )
     }
 }

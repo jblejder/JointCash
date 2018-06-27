@@ -23,7 +23,7 @@ class PersonsAdapter : RecyclerView.Adapter<PersonViewHolder>() {
     override fun getItemCount() = dataSet.size
 
     override fun onBindViewHolder(holder: PersonViewHolder, position: Int) {
-        holder.binding.name.setText(dataSet[position].displayName)
+        holder.binding.name.text = dataSet[position].displayName
     }
 }
 

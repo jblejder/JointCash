@@ -8,7 +8,6 @@ import javax.inject.Inject
 
 class PersonsReadModel
 @Inject constructor(
-        private val context: Context,
         private val persons: Persons
 ) {
 

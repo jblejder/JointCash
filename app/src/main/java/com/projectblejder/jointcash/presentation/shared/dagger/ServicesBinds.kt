@@ -1,5 +1,6 @@
 package com.projectblejder.jointcash.presentation.shared.dagger
 
+import com.projectblejder.jointcash.domain.Groups
 import com.projectblejder.jointcash.domain.Persons
 import dagger.Binds
 import dagger.Module
@@ -8,5 +9,8 @@ import dagger.Module
 interface ServicesBinds {
 
     @Binds
-    fun bind(arg: com.projectblejder.jointcash.infrastructure.Persons): Persons
+    fun persons(arg: com.projectblejder.jointcash.infrastructure.Persons): Persons
+
+    @Binds
+    fun groups(arg: com.projectblejder.jointcash.infrastructure.Groups): Groups
 }

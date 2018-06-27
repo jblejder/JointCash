@@ -22,7 +22,7 @@
             app:layout_constraintStart_toStartOf="parent">
 
             <FrameLayout
-                android:id="@+id/drawerButton"
+                android:id="@+id/menuButton"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_centerVertical="true"

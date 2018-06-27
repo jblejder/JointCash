@@ -20,5 +20,9 @@ class ExpensesFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
+        binding.menuButton.setOnClickListener {
+            GroupsDialogFragment().show(childFragmentManager, "groups-dialog")
+        }
     }
 }
+

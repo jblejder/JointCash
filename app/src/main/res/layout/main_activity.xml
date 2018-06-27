@@ -33,13 +33,19 @@
                     android:id="@+id/expenses"
                     layout="@layout/drawer_item"
                     app:icon="@{@drawable/ic_event_white_24dp}"
-                    app:name="@{@string/expenses}" />
+                    app:name="@{@string/expenses}"
+                    app:selected="@{true}" />
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp" />
 
                 <include
                     android:id="@+id/peoples"
                     layout="@layout/drawer_item"
                     app:icon="@{@drawable/ic_person_white_24dp}"
-                    app:name="@{@string/peoples}" />
+                    app:name="@{@string/peoples}"
+                    app:selected="@{false}" />
 
             </LinearLayout>
         </RelativeLayout>

@@ -8,6 +8,8 @@ import android.support.v7.app.AppCompatActivity
 import android.view.Gravity
 import com.projectblejder.jointcash.R
 import com.projectblejder.jointcash.databinding.MainActivityBinding
+import com.projectblejder.jointcash.presentation.AppActivity.Screen.Expenses
+import com.projectblejder.jointcash.presentation.AppActivity.Screen.Peoples
 import com.projectblejder.jointcash.presentation.expenses.ExpensesFragment
 import com.projectblejder.jointcash.presentation.persons.PersonsFragment
 import com.projectblejder.jointcash.presentation.utils.extensions.inTransaction
@@ -33,8 +35,18 @@ class AppActivity : AppCompatActivity(), DrawerKeeper {
     }
 
     private fun setUpDrawerClicks() {
-        binding.peoples?.also { it.root.setOnClickListener { openFragment(PersonsFragment()) } }
-        binding.expenses?.also { it.root.setOnClickListener { openFragment(ExpensesFragment()) } }
+        binding.peoples?.also {
+            it.root.setOnClickListener {
+                setSelected(Peoples)
+                openFragment(PersonsFragment())
+            }
+        }
+        binding.expenses?.also {
+            it.root.setOnClickListener {
+                setSelected(Expenses)
+                openFragment(ExpensesFragment())
+            }
+        }
     }
 
     override fun toggle() {
@@ -50,6 +62,15 @@ class AppActivity : AppCompatActivity(), DrawerKeeper {
             setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
             replace(binding.content.id, fragment)
         }
+    }
+
+    private fun setSelected(screen: Screen) {
+        binding.peoples?.apply { root.isSelected = screen == Peoples }
+        binding.expenses?.apply { root.isSelected = screen == Expenses }
+    }
+
+    enum class Screen {
+        Peoples, Expenses
     }
 }
 

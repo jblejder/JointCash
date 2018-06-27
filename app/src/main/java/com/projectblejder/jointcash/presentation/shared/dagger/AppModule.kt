@@ -1,12 +1,10 @@
 package com.projectblejder.jointcash.presentation.shared.dagger
 
 import android.content.Context
-import com.projectblejder.jointcash.infrastructure.AppDatabaseFactory
 import com.projectblejder.jointcash.presentation.shared.GlobalApplication
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
-import javax.inject.Singleton
 
 @Module
 abstract class AppModuleBinds {
@@ -19,4 +17,6 @@ abstract class AppModuleBinds {
 @Module
 class AppModule {
 
+    @Provides
+    fun resources(context: Context) = context.resources
 }

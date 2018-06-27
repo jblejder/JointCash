@@ -14,7 +14,8 @@ import javax.inject.Singleton
     AppDatabaseModule::class,
     AppModuleBinds::class,
     BasicFragmentsModule::class,
-    BasicActivitiesModule::class
+    BasicActivitiesModule::class,
+    ServicesBinds::class
 ])
 interface AppComponent : AndroidInjector<GlobalApplication> {
 

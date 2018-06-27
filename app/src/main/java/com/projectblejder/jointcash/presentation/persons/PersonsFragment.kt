@@ -45,9 +45,8 @@ class PersonsFragment : Fragment() {
             AddPersonDialogFragment().show(childFragmentManager, "add-")
         }
 
-        viewModel.database.persons().allRx()
+        viewModel.personsFeed
                 .onBackpressureDrop()
-                .map { it.map { it.displayName } }
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe { adapter.dataSet = it }
                 .disposeWith(disposeBag)

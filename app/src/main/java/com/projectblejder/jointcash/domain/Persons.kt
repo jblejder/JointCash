@@ -1,6 +1,9 @@
 package com.projectblejder.jointcash.domain
 
-import java.util.*
+import com.projectblejder.jointcash.domain.models.Person
+import io.reactivex.Flowable
 
-class Persons {
+interface Persons {
+
+    fun observe(): Flowable<List<Person>>
 }

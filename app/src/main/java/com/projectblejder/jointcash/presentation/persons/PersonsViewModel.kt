@@ -1,10 +1,12 @@
 package com.projectblejder.jointcash.presentation.persons
 
-import com.projectblejder.jointcash.infrastructure.AppDatabase
+import com.projectblejder.jointcash.domain.Persons
 import javax.inject.Inject
 
 
 class PersonsViewModel
 @Inject constructor(
-        val database: AppDatabase
-)
+        val persons: Persons
+) {
+    val personsFeed = persons.observe()
+}

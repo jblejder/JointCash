@@ -4,10 +4,11 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.projectblejder.jointcash.databinding.PersonListItemBinding
+import com.projectblejder.jointcash.domain.models.Person
 
 class PersonsAdapter : RecyclerView.Adapter<PersonViewHolder>() {
 
-    var dataSet: List<String> = emptyList()
+    var dataSet: List<Person> = emptyList()
         set(value) {
             field = value
             notifyDataSetChanged()
@@ -22,7 +23,7 @@ class PersonsAdapter : RecyclerView.Adapter<PersonViewHolder>() {
     override fun getItemCount() = dataSet.size
 
     override fun onBindViewHolder(holder: PersonViewHolder, position: Int) {
-        holder.binding.name.setText(dataSet[position])
+        holder.binding.name.setText(dataSet[position].displayName)
     }
 }
 

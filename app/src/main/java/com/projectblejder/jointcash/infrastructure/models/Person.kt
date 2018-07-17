@@ -7,7 +7,7 @@ import android.arch.persistence.room.PrimaryKey
 @Entity(tableName = "persons")
 data class Person(
         @PrimaryKey(autoGenerate = true)
-        var id: Int?,
+        var id: Long?,
         @ColumnInfo(name = "display_name")
         var displayName: String
 )

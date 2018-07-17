@@ -27,6 +27,6 @@ class AppDatabaseModule {
     @Provides
     fun groups(db: AppDatabase) = db.groups()
 
-    @Provides
-    fun personGroup(db: AppDatabase) = db.personGroup()
+//    @Provides
+//    fun personGroup(db: AppDatabase) = db.personGroup()
 }

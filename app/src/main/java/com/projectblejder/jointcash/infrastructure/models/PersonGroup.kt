@@ -13,9 +13,9 @@ import android.arch.persistence.room.PrimaryKey
         ])
 data class PersonGroup(
         @PrimaryKey(autoGenerate = true)
-        var id: Int?,
+        var id: Long?,
         @ColumnInfo(name = "person_id")
-        var personId: Int,
+        var personId: Long,
         @ColumnInfo(name = "group_id")
-        var groupId: Int
+        var groupId: Long
 )

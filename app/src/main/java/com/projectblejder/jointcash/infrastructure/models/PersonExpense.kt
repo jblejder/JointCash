@@ -13,12 +13,12 @@ import android.arch.persistence.room.PrimaryKey
         ])
 data class PersonExpense(
         @PrimaryKey
-        var id: Int?,
+        var id: Long?,
 
         @ColumnInfo(name = "expense_id")
-        var expenseId: Int,
+        var expenseId: Long,
         @ColumnInfo(name = "person_id")
-        var personId: Int,
+        var personId: Long,
         @ColumnInfo(name = "amount")
 
         var amount: Double,

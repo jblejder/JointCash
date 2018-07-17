@@ -9,7 +9,7 @@ import android.arch.persistence.room.PrimaryKey
 )
 data class Group(
         @PrimaryKey(autoGenerate = true)
-        var id: Int?,
+        var id: Long?,
         @ColumnInfo(name = "name")
         var name: String
 )

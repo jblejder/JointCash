@@ -27,7 +27,7 @@ abstract class AppDatabase() : RoomDatabase() {
 
     abstract fun groups(): GroupsDao
 
-    abstract fun personGroup(): PersonGroupDao
+//    abstract fun personGroup(): PersonGroupDao
 }
 
 class AppDatabaseProvider {

@@ -1,6 +1,12 @@
 package com.projectblejder.jointcash.infrastructure
 
+import android.arch.persistence.room.ColumnInfo
+import android.arch.persistence.room.Entity
+import android.arch.persistence.room.PrimaryKey
 import com.projectblejder.jointcash.domain.Groups
+import com.projectblejder.jointcash.domain.models.Group
+import com.projectblejder.jointcash.domain.models.GroupId
+import com.projectblejder.jointcash.domain.models.PersonId
 import com.projectblejder.jointcash.infrastructure.dao.GroupsDao
 import io.reactivex.Flowable
 import javax.inject.Inject
@@ -13,6 +19,10 @@ class Groups
         private val mapper: KeywordMapper,
         private val groupsDao: GroupsDao
 ) : Groups {
+
+    override fun saveGroup(group: Group) {
+
+    }
 
     override fun observe(): Flowable<List<DomainGroup>> {
         return groupsDao.allRx()
@@ -30,3 +40,9 @@ class Groups
         )
     }
 }
+
+data class GroupCreationModel(
+        var id: GroupId?,
+        var name: String,
+        var participants: List<PersonId> = emptyList()
+)

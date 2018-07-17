@@ -6,4 +6,5 @@ import io.reactivex.Flowable
 interface Groups {
 
     fun observe(): Flowable<List<Group>>
+    fun saveGroup(group: Group)
 }

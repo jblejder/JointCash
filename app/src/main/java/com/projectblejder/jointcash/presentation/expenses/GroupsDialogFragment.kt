@@ -1,5 +1,6 @@
 package com.projectblejder.jointcash.presentation.expenses
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
@@ -7,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.projectblejder.jointcash.databinding.GroupsDialogFragmentBinding
 import com.projectblejder.jointcash.domain.readModels.GroupsReadModel
+import com.projectblejder.jointcash.presentation.groups.CreateGroupActivity
 import com.projectblejder.jointcash.presentation.shared.uiComponents.CustomBottomSheetDialogFragment
 import com.projectblejder.jointcash.presentation.utils.extensions.disposeWith
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -37,5 +39,9 @@ class GroupsDialogFragment : CustomBottomSheetDialogFragment() {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe { adapter.dataSet = it }
                 .disposeWith(disposeBag)
+
+        binding.createNewGroupButton.setOnClickListener {
+            startActivity(Intent(context, CreateGroupActivity::class.java))
+        }
     }
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.projectblejder.jointcash">
+          package="com.projectblejder.jointcash">
 
     <application
         android:name=".presentation.shared.GlobalApplication"
@@ -13,19 +13,23 @@
 
         <activity android:name=".presentation.MainActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
 
         <activity
             android:name=".presentation.AppActivity"
-            android:windowSoftInputMode="adjustResize" />
+            android:windowSoftInputMode="adjustResize"/>
 
         <activity
             android:name=".presentation.TestActivity"
-            android:exported="true" />
+            android:exported="true"/>
+
+        <activity
+            android:name=".presentation.groups.CreateGroupActivity"
+            android:exported="true"/>
     </application>
 
 </manifest>
